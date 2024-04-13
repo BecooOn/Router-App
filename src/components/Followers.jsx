@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import CardFollowers from "../components/CardFollowers";
 
-const Followers = () => {
-  return (
-    <div>Followers</div>
-  )
-}
+const Followers = ({ users }) => {
+  return <CardFollowers users={users}/>;
+};
 
-export default Followers
+export default Followers;

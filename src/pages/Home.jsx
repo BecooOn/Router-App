@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import CardFollowers from "../components/CardFollowers";
 import Loading from "../assets/loading.gif";
 import Container from "react-bootstrap/Container";
+import Followers from "../components/Followers";
 
 const Home = () => {
   const [users, setUsers] = useState([]);
@@ -9,13 +9,15 @@ const Home = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      setLoading(false); // Yükleme tamamlandığında loading durumunu false yap
+      setLoading(false);
     }, 4000);
   }, []);
 
   useEffect(() => {
-    if (!loading) { // Eğer yükleme tamamlandıysa, verileri fetch et
-      fetch("https://api.github.com/users/anthonyharold67/followers?per_page=10")
+    if (!loading) {
+      fetch(
+        "https://api.github.com/users/anthonyharold67/followers?per_page=10"
+      )
         .then((response) => response.json())
         .then((data) => {
           setUsers(data);
@@ -34,7 +36,7 @@ const Home = () => {
     );
   }
 
-  return <CardFollowers users={users} />;
+  return <Followers users={users} />;
 };
 
 export default Home;

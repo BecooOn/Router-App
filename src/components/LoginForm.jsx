@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
+import Image from "react-bootstrap/Image";
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = ({ isLoggedIn, setIsLoggedIn }) => {
@@ -17,18 +18,25 @@ const LoginForm = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <Container className="border border-2 d-flex justify-content-center p-5 text-center loginForm">
       <Form>
+        <Image
+          src="./img/becooOn.png"
+          roundedCircle
+          className="mb-3"
+          width={"50px"}
+          alt="becooOn"
+        />
         <input
           type="text"
           id="email"
           placeholder="📧 e-mail"
-          className="mb-3 input"
+          className="mb-3 p-2 input"
           required
         />
         <br />
         <input
           type="password"
           id="password"
-          className="mb-3 input"
+          className="mb-3 p-2 input"
           placeholder="🔑 password"
           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
           required
@@ -39,7 +47,11 @@ const LoginForm = ({ isLoggedIn, setIsLoggedIn }) => {
           <a href="resetpwd.jsp">Forgot your password?</a>
         </div>
         <div className="mb-3">
-          <button type="submit" onClick={handleSignIn} className="btn btn-primary">
+          <button
+            type="submit"
+            onClick={handleSignIn}
+            className="btn btn-primary"
+          >
             SIGN IN
           </button>
         </div>
@@ -50,7 +62,9 @@ const LoginForm = ({ isLoggedIn, setIsLoggedIn }) => {
           </span>
         </div>
         <div className="mb-3">
-          <button className="btn btn-outline-primary">Continue with Google</button>
+          <button className="btn btn-outline-primary">
+            Continue with Google
+          </button>
         </div>
       </Form>
     </Container>
