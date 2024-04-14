@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";
@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 const LoginForm = ({ isLoggedIn, setIsLoggedIn }) => {
   const navigate = useNavigate();
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
   const handleSignIn = () => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
@@ -15,6 +17,14 @@ const LoginForm = ({ isLoggedIn, setIsLoggedIn }) => {
     setIsLoggedIn(!isLoggedIn);
     navigate("/");
   };
+
+  const handleContinueAsGuest = () => {
+    emailRef.current.value = "";
+    passwordRef.current.value = "";
+    setIsLoggedIn(!isLoggedIn);
+    navigate("/");
+  };
+
   return (
     <Container className="border border-2 d-flex justify-content-center p-5 text-center loginForm">
       <Form>
@@ -30,6 +40,7 @@ const LoginForm = ({ isLoggedIn, setIsLoggedIn }) => {
           id="email"
           placeholder="📧 e-mail"
           className="mb-3 p-2 input"
+          ref={emailRef}
           required
         />
         <br />
@@ -39,13 +50,14 @@ const LoginForm = ({ isLoggedIn, setIsLoggedIn }) => {
           className="mb-3 p-2 input"
           placeholder="🔑 password"
           pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          ref={passwordRef}
           required
         />
         <br />
 
-        <div className="mb-3">
-          <a href="resetpwd.jsp">Forgot your password?</a>
-        </div>
+        {/* <div className="mb-3">
+          <Link to="/reset">Forgot your password?</Link>
+        </div> */}
         <div className="mb-3">
           <button
             type="submit"
@@ -55,15 +67,18 @@ const LoginForm = ({ isLoggedIn, setIsLoggedIn }) => {
             SIGN IN
           </button>
         </div>
-        <div className="mb-3">
+        {/* <div className="mb-3">
           <span>
             if you don't have an account yet.
-            <a href="register.jsp">Sign Up!</a>
+            <Link to="/register">Sign Up!</Link>
           </span>
-        </div>
+        </div> */}
         <div className="mb-3">
-          <button className="btn btn-outline-primary">
-            Continue with Google
+          <button
+            className="btn btn-outline-primary"
+            onClick={handleContinueAsGuest}
+          >
+            Continue as Guest
           </button>
         </div>
       </Form>

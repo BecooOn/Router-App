@@ -33,10 +33,10 @@ function Navbar({ isLoggedIn, setIsLoggedIn, search, setSearch }) {
           </a>
         </Nav.Item>
         <Nav.Item>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/" className="text-decoration-none">Home</NavLink>
         </Nav.Item>
         <Nav.Item>
-          <NavLink to="/about">About</NavLink>
+          <NavLink to="/about"className="text-decoration-none">About</NavLink>
         </Nav.Item>
         {/* <Nav.Item>
           <NavLink to="/login" onClick={() => setIsLoggedIn(!isLoggedIn)}>

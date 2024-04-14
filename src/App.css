@@ -28,8 +28,8 @@ body {
   background-color: orange;
 }
 .active {
+  border-bottom: 3px solid rgb(116, 97, 97);
   text-decoration: none;
-  color: purple;
 }
 
 /* -------------------------------------------- */
