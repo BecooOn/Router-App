@@ -1,9 +1,6 @@
-# Axios-Router Project
+## Axios-Router Project
 
-###Project Tree
-![project](projecttree.jpg)
-
-### Kullanılan Paketler
+## Kullanılan Paketler
 ```
 axios,
 react-router-dom,
@@ -16,21 +13,9 @@ için
 ```
 ### Projede Kullanılacak olan Api
 [Github Api](https://docs.github.com/en/rest/users)
-Buradan biz followers kısmını alacağız .
+Buradan followers kısmını aldım.
 [GithubAPiFollowers](https://api.github.com/users/anthonyharold67/followers?per_page=100)
 
-Api nin verdği farklı veriler de var isteyen inceleyip proje oluşturabilir ona göre.
-
-**Not: İsteyenler about sayfasını da doldurabilirler.**
-
-## Expected Outcome
-
-![router](./router.gif)
-
-
-## Demo
-
-- https://axios-router-project-final-dao8.vercel.app/
 
 ### React Router
 Routing Nedir ? 
