@@ -3,20 +3,20 @@ import Loading from "../assets/loading.gif";
 import Container from "react-bootstrap/Container";
 import Followers from "../components/Followers";
 
-const Home = () => {
+const Home = ({search}) => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 4000);
+    }, 3000);
   }, []);
 
   useEffect(() => {
     if (!loading) {
       fetch(
-        "https://api.github.com/users/anthonyharold67/followers?per_page=10"
+        "https://api.github.com/users/anthonyharold67/followers?per_page=100"
       )
         .then((response) => response.json())
         .then((data) => {
@@ -36,7 +36,7 @@ const Home = () => {
     );
   }
 
-  return <Followers users={users} />;
+  return <Followers users={users} search={search}/>;
 };
 
 export default Home;

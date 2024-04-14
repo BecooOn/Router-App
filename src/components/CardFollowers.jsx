@@ -3,13 +3,14 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/esm/Container";
 
-function CardFollowers({ users }) {
-  console.log(users);
+function CardFollowers({ currentItems }) {
+  // console.log(currentItems);
   return (
     <Container className="d-flex justify-content-center gap-4 flex-wrap mt-4 mb-4">
-      {users.map((user) => (
+      {currentItems.map((user) => (
         <Card
-          style={{ width: "14rem", height: "28rem" }}
+        key={user.id}
+          style={{ width: "15rem", height: "29rem" }}
           className="text-center"
         >
           <Card.Img variant="top" src={user.avatar_url} />

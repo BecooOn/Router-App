@@ -7,7 +7,13 @@ import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import { NavLink } from "react-router-dom";
 
-function Navbar({ isLoggedIn, setIsLoggedIn }) {
+function Navbar({ isLoggedIn, setIsLoggedIn, search, setSearch }) {
+  const handleSearch = (e) => {
+    // console.log(e);
+    e.preventDefault();
+    const searchText = e.target.value.toLowerCase().trim();
+    setSearch(searchText);
+  };
   return (
     <Container className="d-flex justify-content-between p-3 navbar">
       <Nav className="d-flex gap-3 fs-4">
@@ -38,19 +44,23 @@ function Navbar({ isLoggedIn, setIsLoggedIn }) {
           </NavLink>
         </Nav.Item> */}
       </Nav>
-      <Form inline>
-        <Row>
+      <Form>
+        <Row className="justify-content-around">
           <Col xs="auto">
             <Form.Control
-              type="text"
-              placeholder="Search"
+              type="search"
+              placeholder="Search user..."
               className=" mr-sm-2"
+              value={search}
+              onChange={(e) => handleSearch(e)}
             />
           </Col>
           <Col xs="auto">
-            <Button type="submit">Submit</Button>
+            <Button type="submit" onClick={handleSearch}>
+              Search
+            </Button>
           </Col>
-          <Col xs="auto">
+          <Col xs="auto" className="p-2">
             <NavLink
               to="/login"
               type="button"
