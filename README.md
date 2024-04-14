@@ -11,7 +11,7 @@ npm i react-router-dom or yarn add react-router-dom//router yapısını kullanab
 npm i react-bootstrap or yarn add react-bootstrap// style de react-boostrapi kullanabilmek
 için
 ```
-### Projede Kullanılacak olan Api
+### Projede Kullanılan Api
 [Github Api](https://docs.github.com/en/rest/users)
 Buradan followers kısmını aldım.
 [GithubAPiFollowers](https://api.github.com/users/anthonyharold67/followers?per_page=100)
