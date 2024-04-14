@@ -6,30 +6,41 @@ const Followers = ({ users, search }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [currentItems, setCurrentItems] = useState([]);
   const itemPerPage = 10;
-  const totalPage = Math.ceil(
-    search
-      ? currentItems.length / itemPerPage
-      : users.length / itemPerPage
-  );
-  const indexOfLastItem = currentPage * itemPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemPerPage;
-  // const currentItems = users.slice(indexOfFirstItem, indexOfLastItem);
-  // console.log(currentItems.length);
+
   useEffect(() => {
     const filteredUsers = search
       ? users.filter((user) => user.login.toLowerCase().includes(search))
       : users;
-    setCurrentItems(filteredUsers.slice(indexOfFirstItem, indexOfLastItem));
-  }, [users, search, currentPage, indexOfFirstItem, indexOfLastItem]);
+    setCurrentItems(filteredUsers);
+  }, [users, search]);
+
+  const indexOfLastItem = currentPage * itemPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemPerPage;
+
+  // Arama sonucunda bulunan kullanıcının indeksini bulmak için
+  const foundUserIndex = currentItems.findIndex((user) =>
+    user.login.toLowerCase().includes(search)
+  );
+  // console.log(foundUserIndex);
+
+  // Eğer kullanıcı bulunduysa ve bulunan kullanıcı mevcut sayfanın dışında ise, onun bulunduğu sayfaya gitmek için
+  useEffect(() => {
+    if (foundUserIndex !== -1) {
+      const userPage = Math.ceil((foundUserIndex + 1) / itemPerPage);
+      setCurrentPage(userPage);
+    }
+  }, [foundUserIndex, itemPerPage]);
 
   return (
     <>
-      <CardFollowers currentItems={currentItems} />
+      <CardFollowers
+        currentItems={currentItems.slice(indexOfFirstItem, indexOfLastItem)}
+      />
       <Paginate
-        users={users}
+        currentItems={currentItems}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
-        totalPage={totalPage}
+        totalPage={Math.ceil(currentItems.length / itemPerPage)}
         indexOfLastItem={indexOfLastItem}
       />
     </>

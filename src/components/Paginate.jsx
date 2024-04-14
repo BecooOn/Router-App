@@ -2,13 +2,14 @@ import React from "react";
 import { GrCaretPrevious, GrCaretNext } from "react-icons/gr";
 
 const Paginate = ({
-  users,
+  currentItems,
   currentPage,
   setCurrentPage,
   totalPage,
   indexOfLastItem,
 }) => {
   console.log(totalPage);
+  console.log(indexOfLastItem);
   const items = [];
   for (let i = 1; i <= totalPage; i++) {
     items.push(
@@ -37,7 +38,7 @@ const Paginate = ({
       <button
         className="page-item p-1 ms-1"
         onClick={() => setCurrentPage(currentPage + 1)}
-        disabled={indexOfLastItem >= users.length}
+        disabled={indexOfLastItem >= currentItems.length}
       >
         <GrCaretNext />
       </button>

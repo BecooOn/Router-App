@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
+// import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import { NavLink } from "react-router-dom";
 
@@ -15,7 +15,7 @@ function Navbar({ isLoggedIn, setIsLoggedIn, search, setSearch }) {
     setSearch(searchText);
   };
   return (
-    <Container className="d-flex justify-content-between p-3 navbar">
+    <div className="d-flex justify-content-around p-3 navbar">
       <Nav className="d-flex gap-3 fs-4">
         <Nav.Item>
           <a
@@ -71,7 +71,7 @@ function Navbar({ isLoggedIn, setIsLoggedIn, search, setSearch }) {
           </Col>
         </Row>
       </Form>
-    </Container>
+    </div>
   );
 }
 

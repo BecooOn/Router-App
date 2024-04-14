@@ -1,12 +1,12 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import Container from "react-bootstrap/esm/Container";
+// import Container from "react-bootstrap/esm/Container";
 
 function CardFollowers({ currentItems }) {
   // console.log(currentItems);
   return (
-    <Container className="d-flex justify-content-center gap-4 flex-wrap mt-4 mb-4">
+    <div className="container d-flex justify-content-center gap-3 flex-wrap mt-4 mb-4">
       {currentItems.map((user) => (
         <Card
         key={user.id}
@@ -28,7 +28,7 @@ function CardFollowers({ currentItems }) {
           </Card.Body>
         </Card>
       ))}
-    </Container>
+    </div>
   );
 }
 

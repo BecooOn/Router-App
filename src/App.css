@@ -6,6 +6,9 @@
 body {
   background-color: #aca6a6;
 }
+/* -------------------------------------------- */
+/*                 loginForm.jsx                */
+/* -------------------------------------------- */
 .loginForm {
   background-color: #a08989;
   box-shadow: 0 0 5px #000;
@@ -17,6 +20,10 @@ body {
   height: 2.5rem;
   width: 260px;
 }
+
+/* -------------------------------------------- */
+/*                 Navbar.jsx                   */
+/* -------------------------------------------- */
 .navbar {
   background-color: orange;
 }
@@ -28,11 +35,37 @@ body {
 /* -------------------------------------------- */
 /*                 Paginate.jsx                 */
 /* -------------------------------------------- */
-.page-item{
+.page-item {
   background-color: bisque;
   cursor: pointer;
 }
-.active1{
-  color: red;
-  background-color: #0B5ED7;
+.active1 {
+  color: white;
+  background-color: #0b5ed7;
+}
+
+/* -------------------------------------------- */
+/*                   aboutInfo                  */
+/* -------------------------------------------- */
+.social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 4rem;
+}
+.image-animation {
+  animation-name: zoomIn;
+  animation-duration: 1s;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1); 
+    opacity: 1;
+  }
 }
